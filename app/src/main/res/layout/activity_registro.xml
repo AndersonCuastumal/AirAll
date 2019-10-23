@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpapperbw2"
+    tools:context=".RegistroActivity">
+
+    <View
+        android:id="@+id/vrVista"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/irLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+
+        android:src="@drawable/wlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:id="@+id/vrVista1"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/trTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="152dp"
+        android:text="@string/registros"
+        android:textColor="#2c1f3d"
+        android:textSize="40sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <EditText
+        android:id="@+id/eNombre"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/bg3"
+
+        android:hint="@string/nombre"
+        android:textAlignment="center"
+        android:textColor="#28336C"
+        app:layout_constraintTop_toTopOf="@+id/trTitle"
+        tools:layout_editor_absoluteX="31dp" />
+
+    <EditText
+        android:id="@+id/eCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/bg3"
+        android:hint="@string/correo"
+        android:textAlignment="center"
+
+        android:textColor="#28336C"
+        app:layout_constraintTop_toBottomOf="@+id/eNombre"
+        tools:layout_editor_absoluteX="48dp" />
+
+    <EditText
+        android:id="@+id/eContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:background="@drawable/bg3"
+        android:hint="@string/contraseña"
+
+        android:textAlignment="center"
+        android:textColor="#28336C"
+        app:layout_constraintTop_toBottomOf="@+id/eCorreo"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/eRepContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="48dp"
+
+        android:background="@drawable/bg3"
+        android:hint="@string/repcontraseña"
+        android:textAlignment="center"
+        android:textColor="#28336C"
+        app:layout_constraintTop_toBottomOf="@+id/eContraseña"
+        tools:layout_editor_absoluteX="48dp" />
+
+    <Button
+        android:id="@+id/bButon"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg"
+        android:text="@string/registros"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eRepContraseña" />
+
+    <Button
+        android:id="@+id/bCancelar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg2"
+        android:text="@string/bCancelar"
+        android:onClick="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bButon"
+        app:layout_constraintVertical_bias="0.135" />
+
+</android.support.constraint.ConstraintLayout>

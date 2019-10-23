@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mAgregar"
+        android:title="@string/agregar"
+        />
+    <item android:id="@+id/mBorrarS"
+        android:title="@string/borrars"
+        />
+    <item android:id="@+id/mBorrar"
+        android:title="@string/calculo"
+        />
+    <item android:id="@+id/mSesion"
+        android:title="@string/sesion"
+        />
+</menu>

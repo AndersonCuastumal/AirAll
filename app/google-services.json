@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "668682047052",
+    "firebase_url": "https://airall.firebaseio.com",
+    "project_id": "airall",
+    "storage_bucket": "airall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668682047052:android:a3dfcab7586abd8b892ee9",
+        "android_client_info": {
+          "package_name": "com.lenovoexample.tracingvf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668682047052-a0sotk1fetnhqn7g14kvchh1bl8gq24m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lenovoexample.tracingvf",
+            "certificate_hash": "34758662c2fc95a5c156e3d53ba3613c997da51a"
+          }
+        },
+        {
+          "client_id": "668682047052-68fb3sb1h07d0illh70eoon263gltv4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCid3Ll2ifdp3yvReHLWvOXfktjYpf_b5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668682047052-68fb3sb1h07d0illh70eoon263gltv4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

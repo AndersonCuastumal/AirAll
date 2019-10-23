@@ -1,0 +1,54 @@
+<resources>
+    <string name="facebook_app_id">262072498044616</string>
+    <string name="fb_login_protocol_scheme">fb262072498044616</string>
+    <string name="app_name">TracingVF</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="registros">Crear Cuenta</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">example@tracing.com</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="repcontraseña">Repetir contraseña</string>
+    <string name="continuar">Continuar</string>
+    <string name="nombres">Nombres</string>
+    <string name="direcci_n">Direccion</string>
+    <string name="aceptar">Iniciar</string>
+    <string name="registro">Crear cuenta?</string>
+    <string name="title_activity_admin">AdminActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="clientes">Clientes</string>
+    <string name="supervisores">Supervisores</string>
+    <string name="mapa">Mapa</string>
+    <string name="agregar">Agregar Supervisor</string>
+    <string name="borrar">Borrar Usuario</string>
+    <string name="sesion">Cerrar Sesión</string>
+    <string name="telefono">Telefono</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="principal">Principal</string>
+    <string name="image">Logo Tracing</string>
+    <string name="descripcion">Mejorar la seguridad de tu hogar, mediante nuestro sistema de georreferenciacion.</string>
+    <string name="eventos">Eventos</string>
+    <string name="titulo">Datos del usuario</string>
+    <string name="mail">Correo:</string>
+    <string name="title_activity_supervisor">SupervisorActivity</string>
+    <string name="borrars">Borrar Supervisor</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_usuario">UsuarioActivity</string>
+    <string name="perfil">Perfil</string>
+    <string name="alarmas">Alarmas</string>
+    <string name="tEmergencia">Emergencia</string>
+    <string name="bHurto">Hurto</string>
+    <string name="bIncendio">Incendio</string>
+    <string name="bSalud">Salud</string>
+    <string name="bTecnico">Tecnico</string>
+    <string name="bRuta">Seguimiento</string>
+    <string name="bCancelar">Cancelar</string>
+    <string name="bVolver">X</string>
+    <string name="hora">Hora</string>
+    <string name="Ruta">Ruta</string>
+    <string name="calculo">Calcular posición</string>
+</resources>
