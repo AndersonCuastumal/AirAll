@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private String passAdmin = "1234";
     ArrayList<String> correosGoogle = new ArrayList<String>();
 
-    //FB
+    //Login FB
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
@@ -106,11 +106,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     private DatabaseReference usersDatabase;
 
+
+    //autenticacion Logeo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+
+        //captura la ubicacion del usuario.
         miUbicacion();
         setContentView(R.layout.activity_login);
 
@@ -133,7 +137,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         });
         tRegistro = findViewById(R.id.tRegistro);
 
+        //usuarios base de datos y validacion
         usersDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+
 
         usersDatabase.addValueEventListener(new ValueEventListener() {
             @Override
