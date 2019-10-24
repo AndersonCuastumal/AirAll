@@ -82,10 +82,7 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
                     UsersFragment usersFragment = new UsersFragment();
                     ft.replace(R.id.frames, usersFragment).commit();
                     return true;
-                case R.id.mSupervisores:
-                    SupervisorFragment supervisorFragment = new SupervisorFragment();
-                    ft.replace(R.id.frames,supervisorFragment).commit();
-                    return true;
+
                 case R.id.mMapa:
                     AdminMapFragment adminMapFragment = new AdminMapFragment();
                     ft.replace(R.id.frames,adminMapFragment).commit();

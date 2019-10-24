@@ -168,7 +168,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     private void updateUI(FirebaseUser user) {
         if(user!=null){
-            Intent intent = new Intent(RegistroActivity.this, UsuarioActivity.class);
+            Intent intent = new Intent(RegistroActivity.this, AdminActivity.class);
             intent.putExtra("correo",eCorreo.getText().toString().trim());
             startActivity(intent);
             finish();

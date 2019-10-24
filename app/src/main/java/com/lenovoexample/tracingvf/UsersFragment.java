@@ -51,7 +51,7 @@ public class UsersFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 usuarios.removeAll(usuarios);
                 for (DataSnapshot snapshot:
-                     dataSnapshot.getChildren()) {
+                        dataSnapshot.getChildren()) {
                     Usuarios usuario = snapshot.getValue(Usuarios.class);
                     usuarios.add(usuario);
                 }

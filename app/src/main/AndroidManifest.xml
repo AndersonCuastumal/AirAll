@@ -17,16 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".UsuarioActivity"
-            android:label="@string/title_activity_usuario" />
         <activity android:name=".BorrarSupervisorActivity" />
-        <activity
-            android:name=".SupervisorActivity"
-            android:label="@string/title_activity_supervisor" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main" />
         <activity android:name=".AgregarSupervisorActivity" />
         <activity
             android:name=".AdminActivity"

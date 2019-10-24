@@ -79,8 +79,7 @@ public class SeguimientoFragment extends Fragment implements OnMapReadyCallback 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_seguimiento, container, false);
-        UsuarioActivity usuarioActivity = (UsuarioActivity) getActivity();
-        correo = usuarioActivity.getDataFragment();
+
         getDireccion = view.findViewById(R.id.bDireccion);
         listPoints=new ArrayList<>();
         place1=new MarkerOptions();

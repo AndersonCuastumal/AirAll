@@ -51,4 +51,6 @@
     <string name="hora">Hora</string>
     <string name="Ruta">Ruta</string>
     <string name="calculo">Calcular posición</string>
+    <string name="Recomendaciones">Recomendaciones</string>
+    <string name="Avatar">Avatar</string>
 </resources>

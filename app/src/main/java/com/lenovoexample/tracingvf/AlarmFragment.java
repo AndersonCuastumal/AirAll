@@ -68,13 +68,7 @@ public class AlarmFragment extends Fragment {
         bTecnico=view.findViewById(R.id.bTecnico);
         bCancelar=view.findViewById(R.id.bCancelar);
 
-        UsuarioActivity usuarioActivity = (UsuarioActivity) getActivity();
-        name = usuarioActivity.getListName();
-        email = usuarioActivity.getListEmail();
-        adress = usuarioActivity.getListAdress();
-        lat = usuarioActivity.getListLat();
-        lng = usuarioActivity.getListLng();
-        correo = usuarioActivity.getDataFragment();
+
 
         fecha = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
@@ -178,14 +172,14 @@ public class AlarmFragment extends Fragment {
             }
         });
 
-        bRuta.setOnClickListener(new View.OnClickListener() {
+      /*  bRuta.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         goMap();
                     }
                 }
         );
-
+*/
         return view;
     }
 
@@ -230,9 +224,11 @@ public class AlarmFragment extends Fragment {
                 });
             }
     }
-
+/*
     private void goMap() {
         SeguimientoFragment fr= new SeguimientoFragment();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameUsuario,fr).addToBackStack(null).commit();
     }
+
+ */
 }
