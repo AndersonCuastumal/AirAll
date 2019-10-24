@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.lenovoexample.tracingvf.Objects.pushValors;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class AdminActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -58,7 +57,7 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
 
     ArrayList<Float> distance = new ArrayList<Float>();
     ArrayList<Integer> menDistance = new ArrayList<Integer>();
-     int popo = 0;
+    int popo = 0;
     int h;
 
     DatabaseReference adminReftwice = FirebaseDatabase.getInstance().getReference("conector");
@@ -111,17 +110,17 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
             return;
         }
 
-        conectorDatabase = FirebaseDatabase.getInstance().getReference().child("conector");
-        supervisorDatabase = FirebaseDatabase.getInstance().getReference().child("supervisors");
-        alarmDatabase = FirebaseDatabase.getInstance().getReference().child("alarms");
-        conectorDatabase.addValueEventListener(new ValueEventListener() {
+        //conectorDatabase = FirebaseDatabase.getInstance().getReference().child("conector");
+        //supervisorDatabase = FirebaseDatabase.getInstance().getReference().child("supervisors");
+        //alarmDatabase = FirebaseDatabase.getInstance().getReference().child("alarms");
+        /*conectorDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 correosList = new ArrayList<String>();
                 for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                     HashMap map =(HashMap) childSnapshot.getValue();
                     if(map!=null) {
-                        correosList.add((String) map.get("emailUser"));
+                        //correosList.add((String) map.get("emailUser"));
                     }
                 }
             }
@@ -130,9 +129,9 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
-        supervisorDatabase.addValueEventListener(new ValueEventListener() {
+          /*  supervisorDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 latSupervisor = new ArrayList<Double>();
@@ -148,7 +147,9 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
                         emailSupervisor.add((String) map.get("email"));
                         nameSupervisor.add((String) map.get("name"));
                         adressSupervisor.add((String) map.get("adress"));
+
                     }
+
                 }
                 alarmDatabase.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -170,12 +171,15 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
                                 adressAlarm.add((String) map.get("adress"));
                                 textAlarm.add((String) map.get("alarm"));
                                 fechaAlarm.add((String) map.get("fecha"));
+
+
+
                             }
                         }
                         if(latAlarm.size()>0) {
                             for (int i = 0; i < nameAlarm.size(); i++) {
                                 for (int b = 0; b < latSupervisor.size(); b++) {
-                                    distancia(latAlarm.get(i), lngAlarm.get(i), latSupervisor.get(b), lngSupervisor.get(b));
+                                   // distancia(latAlarm.get(i), lngAlarm.get(i), latSupervisor.get(b), lngSupervisor.get(b));
                                 }
                                 menDistance.add(distance.indexOf(distance.get(min())));
                             }
@@ -201,7 +205,7 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
     }
 
     private void distancia(Double aDouble, Double aDouble1, Double aDouble2, Double aDouble3) {
@@ -217,6 +221,7 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
 
     private Integer min() {
         int min = 0;
+        /*
         Float minimo = distance.get(0);
         for(; popo<distance.size();popo++){
             if(minimo<=distance.get(popo)){
@@ -228,7 +233,11 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
             }
         }
         popo++;
+
+        */
         return min;
+
+
     }
 
     @Override
@@ -291,12 +300,14 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for(DataSnapshot datasnapshot: dataSnapshot.getChildren()){
                                     String clave = datasnapshot.getKey();
-                                    adminReftwice.child(clave).child("nameSupervisor").setValue(nameSupervisor.get(menDistance.get(h)));
+                               /*     adminReftwice.child(clave).child("nameSupervisor").setValue(nameSupervisor.get(menDistance.get(h)));
                                     adminReftwice.child(clave).child("emailSupervisor").setValue(emailSupervisor.get(menDistance.get(h)));
                                     adminReftwice.child(clave).child("latSupervisor").setValue(latSupervisor.get(menDistance.get(h)));
                                     adminReftwice.child(clave).child("lngSupervisor").setValue(lngSupervisor.get(menDistance.get(h)));
                                     adminReftwice.child(clave).child("adressSupervisor").setValue(adressSupervisor.get(menDistance.get(h)));
+                                 */
                                 }
+
                             }
 
                             @Override

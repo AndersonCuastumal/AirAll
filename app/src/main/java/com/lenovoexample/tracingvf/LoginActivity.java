@@ -21,20 +21,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -56,7 +46,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
+public class LoginActivity extends AppCompatActivity {
 
     private EditText eCorreo, eContraseña;
     private Button bRegistro;
@@ -70,18 +60,17 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     ArrayList<String> correosGoogle = new ArrayList<String>();
 
     //Login FB
-    private LoginButton loginButton;
-    private CallbackManager callbackManager;
-    private FirebaseAuth.AuthStateListener firebaseAuthListener;
     private FirebaseAuth.AuthStateListener getFirebaseAuthListener;
 
-    //Login Google
-    private GoogleApiClient googleApiClient;
-    private SignInButton signInButton;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener gofirebaseAuthListener;
-    public static final int SIGN_IN_CODE=777;
 
+
+    //Login Google
+
+
+
+
+    public static final int SIGN_IN_CODE=777;
+    private FirebaseAuth firebaseAuth;
     private static final String TAG = "ViewDataBase";
     private FirebaseAuth mAuthAutentication;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -126,6 +115,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         };
 
+
         eCorreo = findViewById(R.id.eCorreo);
         eContraseña = findViewById(R.id.eContraseña);
         bRegistro = findViewById(R.id.bRegistro);
@@ -163,76 +153,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         });
 
         mAuth = FirebaseAuth.getInstance();
+
         getFirebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
                 if(user!=null){
                     goMainScreen();
-                }
-            }
-        };
-
-        signInButton=(SignInButton)findViewById(R.id.signInButton);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
-                startActivityForResult(i,SIGN_IN_CODE);
-            }
-        });
-
-        GoogleSignInOptions gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        googleApiClient=new GoogleApiClient.Builder(this)
-                .enableAutoManage(this,  this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
-                .build();
-
-        callbackManager = CallbackManager.Factory.create();
-
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("email","public_profile ");
-
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                handleFacebookAccessToken(loginResult.getAccessToken());
-                miUbicacion();
-                Usuarios usuarios = new Usuarios(namePerfil, direcciones, mailPerfil, lat, lng,"");
-                userRef.child("users").push().setValue(usuarios);
-            }
-
-            @Override
-            public void onCancel() {
-                Toast.makeText(getBaseContext(), "Login Cancelado", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Toast.makeText(getBaseContext(), "Login Error", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(AccessToken.getCurrentAccessToken() != null){
-                    Toast.makeText(LoginActivity.this,AccessToken.getCurrentAccessToken().getExpires().toString(),Toast.LENGTH_LONG).show();
-                }
-                if(user != null){
-                    Intent intent = new Intent(LoginActivity.this, UsuarioActivity.class);
-                    intent.putExtra("correo",correoGoogle);
-                    //here
-                    namePerfil = user.getDisplayName();
-                    mailPerfil = user.getEmail();
-                    //
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
                 }
             }
         };
@@ -250,9 +177,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private void enviarDatos() {
         if(eCorreo.getText().toString().equals("")||eContraseña.getText().toString().equals("")){
             Toast.makeText(this, "Ingrese los datos", Toast.LENGTH_SHORT).show();
-        }else if(eCorreo.getText().toString().equals(mailAdmin) && eContraseña.getText().toString().equals(passAdmin)){
-            sesionAdmin();
-            Toast.makeText(this, "Administrador", Toast.LENGTH_SHORT).show();
         }else {
             inicioSesion();
         }
@@ -270,17 +194,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==SIGN_IN_CODE){
-            miUbicacion();
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
-        }
-    }
 
     private void handleSignInResult(GoogleSignInResult result) {
 
@@ -289,7 +203,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             firebaseAuthWithGoogle(acct);
             namePerfil = acct.getDisplayName();
             mailPerfil = acct.getEmail();
-            correoGoogle = acct.getEmail();
+
             if (lat != 0.0 && lng != 0.0){
                 try{
                     Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -416,16 +330,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     private void goMainScreen() {
-        Intent i= new Intent(LoginActivity.this, UsuarioActivity.class);
+        Intent i= new Intent(LoginActivity.this, AdminActivity.class);
         i.putExtra("correo",mailPerfil);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
 
-    private void sesionAdmin() {
-        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-        startActivity(intent);
-    }
+
 
     private void inicioSesion() {
         String pass = eContraseña.getText().toString();
@@ -438,18 +349,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
 
-                            if(mail.contains("@tracing.com")){
-                                Intent intent = new Intent(LoginActivity.this, SupervisorActivity.class);
+
+                                Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                 intent.putExtra("correo",mail);
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(), "Bienvenido Supervisor(Tracing)", Toast.LENGTH_LONG).show();
-                            }else{
-                                Intent intent = new Intent(LoginActivity.this, UsuarioActivity.class);
-                                intent.putExtra("correo",mail);
-                                startActivity(intent);
-                                Toast.makeText(getApplicationContext(), "Bienvenido Tracing", Toast.LENGTH_LONG).show();
 
-                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(getApplicationContext(), task.getException().getMessage()+"",
@@ -463,15 +368,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     protected void onStart(){
         super.onStart();
 
-        FirebaseAuth.getInstance().addAuthStateListener(firebaseAuthListener);
     }
 
     @Override
     protected void onStop(){
         super.onStop();
-        if(firebaseAuthListener != null){
-            FirebaseAuth.getInstance().removeAuthStateListener(firebaseAuthListener);
-        }
+
     }
 
     @Override
@@ -479,9 +381,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         finish();
     }
 
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Toast.makeText(this, "Error de conexion!", Toast.LENGTH_SHORT).show();
-    }
+
 
 }

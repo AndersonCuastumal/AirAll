@@ -223,6 +223,9 @@ public class SupervisorMapFragment extends Fragment implements OnMapReadyCallbac
                     }
                 });
 
+
+
+
         //Adding the request to request queue
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
