@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,7 +52,7 @@ public class UsersFragment extends Fragment {
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         avatars = new ArrayList<>();
         //prueba avatar funciona perro
-        avatars.add(new Avatar(R.drawable.w1, "Angel Beats", "muy buenos dias"));
+        avatars.add(new Avatar(R.drawable.w1, "Avatar", "muy buenos dias"));
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         adapter = new AdapterUsers(avatars);
         recycler.setAdapter(adapter);
@@ -67,9 +66,8 @@ public class UsersFragment extends Fragment {
                     if (cadena != null) {
 
                         sexo.add((String) cadena.get("name"));
-
-
-                        Toast.makeText(getActivity(), sexo.get(0), Toast.LENGTH_SHORT).show();
+                        //leer datos de firebase
+                        //Toast.makeText(getActivity(), sexo.get(0), Toast.LENGTH_SHORT).show();
 
 
 
