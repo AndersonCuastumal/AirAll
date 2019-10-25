@@ -21,7 +21,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,8 +51,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     Double lng = 0.0;
 
     Animation iMarca;
-    ImageView irLogo;
-    View vrVista,vrVista1;
+    View vrVista1;
 
     private ProgressDialog progressDialog;
 
@@ -65,8 +63,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        irLogo=findViewById(R.id.irLogo);
-        vrVista=findViewById(R.id.vrVista);
         vrVista1=findViewById(R.id.vrVista1);
         trTitulo=findViewById(R.id.trTitle);
 
@@ -87,9 +83,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         eRepContrasena.startAnimation(iMarca);
         bButon.startAnimation(iMarca);
         bCancelar.startAnimation(iMarca);
-        irLogo.startAnimation(iMarca);
         vrVista1.startAnimation(iMarca);
-        vrVista.startAnimation(iMarca);
         trTitulo.startAnimation(iMarca);
 
         progressDialog = new ProgressDialog(this);

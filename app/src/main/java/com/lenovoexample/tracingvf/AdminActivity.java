@@ -74,14 +74,17 @@ public class AdminActivity extends AppCompatActivity implements OnMapReadyCallba
             ft = fm.beginTransaction();
 
             switch (item.getItemId()) {
-                case R.id.mEventos:
-                    AdminEventFragment adminEventFragment = new AdminEventFragment();
-                    ft.replace(R.id.frames,adminEventFragment).commit();
-                    return true;
+
                 case R.id.mClientes:
                     UsersFragment usersFragment = new UsersFragment();
                     ft.replace(R.id.frames, usersFragment).commit();
                     return true;
+
+                case R.id.mEventos:
+                    AdminEventFragment adminEventFragment = new AdminEventFragment();
+                    ft.replace(R.id.frames,adminEventFragment).commit();
+                    return true;
+
 
                 case R.id.mMapa:
                     AdminMapFragment adminMapFragment = new AdminMapFragment();

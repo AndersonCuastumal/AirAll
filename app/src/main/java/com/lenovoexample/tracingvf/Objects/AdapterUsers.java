@@ -1,10 +1,11 @@
 package com.lenovoexample.tracingvf.Objects;
 
-import android.support.annotation.NonNull;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lenovoexample.tracingvf.R;
@@ -13,42 +14,50 @@ import java.util.List;
 
 public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.UsersviewHolder>{
 
-    List<Usuarios> usuarios;
+    private List<Avatar> avatars;
 
-    public AdapterUsers(List<Usuarios> usuarios) {
-        this.usuarios = usuarios;
+    public static class UsersviewHolder extends RecyclerView.ViewHolder{
+
+        public ImageView imagen;
+        public TextView nombre;
+        public TextView descripcion;
+
+        public UsersviewHolder(View itemView) {
+            super(itemView);
+            imagen = (ImageView) itemView.findViewById(R.id.imagen);
+            nombre = (TextView) itemView.findViewById(R.id.nombre);
+            descripcion = (TextView) itemView.findViewById(R.id.descripcion);
+        }
     }
 
-    @NonNull
-    @Override
-    public UsersviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.users_recycler, parent,false);
-        UsersviewHolder holder = new UsersviewHolder(v);
-        return holder;
-    }
 
-    @Override
-    public void onBindViewHolder(@NonNull UsersviewHolder holder, int position) {
-        Usuarios usuario = usuarios.get(position);
-        holder.tNombre.setText(usuario.getName());
-        holder.tDescripion.setText(usuario.getAdress());
-        holder.tCorreo.setText(usuario.getEmail());
+
+
+    public AdapterUsers(List<Avatar> avatars) {
+        this.avatars = avatars;
     }
 
     @Override
     public int getItemCount() {
-        return usuarios.size();
+        return avatars.size();
     }
 
-    public static class UsersviewHolder extends RecyclerView.ViewHolder{
 
-        TextView tNombre, tDescripion, tCorreo;
-
-        public UsersviewHolder(View itemView) {
-            super(itemView);
-            tNombre = itemView.findViewById(R.id.tNombre);
-            tDescripion = itemView.findViewById(R.id.tDescripcion);
-            tCorreo = itemView.findViewById(R.id.tCorreo);
-        }
+    @Override
+    public UsersviewHolder onCreateViewHolder( ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.users_recycler, viewGroup, false);
+        return new UsersviewHolder(v);
     }
+
+    @Override
+    public void onBindViewHolder( UsersviewHolder holder, int position) {
+        Avatar avatar = avatars.get(position);
+        holder.imagen.setImageResource(avatar.getImagen());
+        holder.nombre.setText(avatar.getNombre());
+        holder.descripcion.setText(avatar.getDescripcion());
+    }
+
+
+
 }

@@ -12,7 +12,7 @@
     <string name="nombres">Nombres</string>
     <string name="direcci_n">Direccion</string>
     <string name="aceptar">Iniciar</string>
-    <string name="registro">Crear cuenta?</string>
+    <string name="registro">REGISTRARSE</string>
     <string name="title_activity_admin">AdminActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -53,4 +53,7 @@
     <string name="calculo">Calcular posición</string>
     <string name="Recomendaciones">Recomendaciones</string>
     <string name="Avatar">Avatar</string>
+    <string name="masculino">Masculino</string>
+    <string name="femenino">Femenino</string>
+    <string name="otro">Otro</string>
 </resources>
